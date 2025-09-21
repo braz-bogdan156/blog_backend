@@ -3,6 +3,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
+import { CommentModel } from './comments/models/comments.model';
+import { PostModel } from './posts/models/posts.model';
 
 @Module({
   imports: [
@@ -16,7 +18,7 @@ import { CommentsModule } from './comments/comments.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [],
+      models: [PostModel, CommentModel],
       autoLoadModels: true,
       synchronize: true,
     }),

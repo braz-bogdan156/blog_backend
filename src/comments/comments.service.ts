@@ -1,17 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Comment } from './models/comments.model';
+import { CommentModel } from './models/comments.model';
 import { CreateCommentDto } from './dto/create-comment.dto';
-import { Post } from '../posts/models/posts.model';
+import { PostModel } from '../posts/models/posts.model';
 
 @Injectable()
 export class CommentsService {
   constructor(
-    @InjectModel(Comment) private commentRepository: typeof Comment,
-    @InjectModel(Post) private postRepository: typeof Post,
+    @InjectModel(CommentModel) private commentRepository: typeof CommentModel,
+    @InjectModel(PostModel) private postRepository: typeof PostModel,
   ) {}
 
-  async create(dto: CreateCommentDto): Promise<Comment> {
+  async create(dto: CreateCommentDto): Promise<CommentModel> {
     const post = await this.postRepository.findByPk(dto.postId);
     if (!post)
       throw new NotFoundException(`Post with id=${dto.postId} not found`);
@@ -19,10 +19,10 @@ export class CommentsService {
     return await this.commentRepository.create(dto);
   }
 
-  async findByPostId(postId: number): Promise<Comment[]> {
+  async findByPostId(postId: number): Promise<CommentModel[]> {
     return await this.commentRepository.findAll({
       where: { postId },
-      include: { model: Post },
+      include: { model: PostModel, as: 'post' },
     });
   }
 }

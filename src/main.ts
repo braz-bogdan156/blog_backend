@@ -14,6 +14,10 @@ async function start() {
     }),
   );
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.enableCors({
+    origin: 'http://localhost:5174',
+    credentials: true,
+  });
   await app.listen(PORT, () => console.log(`Server started on port = ${PORT}`));
 }
 

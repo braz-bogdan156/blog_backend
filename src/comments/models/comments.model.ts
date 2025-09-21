@@ -6,7 +6,7 @@ import {
   ForeignKey,
   BelongsTo,
 } from 'sequelize-typescript';
-import { Post } from '../../posts/models/posts.model';
+import { PostModel } from '../../posts/models/posts.model';
 
 interface CommentCreationAttrs {
   text: string;
@@ -14,7 +14,7 @@ interface CommentCreationAttrs {
 }
 
 @Table({ tableName: 'comments' })
-export class Comment extends Model<Comment, CommentCreationAttrs> {
+export class CommentModel extends Model<CommentModel, CommentCreationAttrs> {
   @Column({
     type: DataType.INTEGER,
     unique: true,
@@ -26,10 +26,10 @@ export class Comment extends Model<Comment, CommentCreationAttrs> {
   @Column({ type: DataType.TEXT, allowNull: false })
   text: string;
 
-  @ForeignKey(() => Post)
+  @ForeignKey(() => PostModel)
   @Column({ type: DataType.INTEGER, allowNull: false })
   postId: number;
 
-  @BelongsTo(() => Post)
-  post: Post;
+  @BelongsTo(() => PostModel)
+  post: PostModel;
 }

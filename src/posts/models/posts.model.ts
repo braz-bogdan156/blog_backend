@@ -1,5 +1,5 @@
 import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import { Comment } from '../../comments/models/comments.model';
+import { CommentModel } from '../../comments/models/comments.model';
 
 interface PostCreationAttrs {
   title: string;
@@ -7,7 +7,7 @@ interface PostCreationAttrs {
 }
 
 @Table({ tableName: 'posts' })
-export class Post extends Model<Post, PostCreationAttrs> {
+export class PostModel extends Model<PostModel, PostCreationAttrs> {
   @Column({
     type: DataType.INTEGER,
     unique: true,
@@ -22,6 +22,6 @@ export class Post extends Model<Post, PostCreationAttrs> {
   @Column({ type: DataType.TEXT, allowNull: false })
   content: string;
 
-  @HasMany(() => Comment)
+  @HasMany(() => CommentModel)
   comments: Comment[];
 }
