@@ -20,8 +20,8 @@ Implements CRUD operations for blog posts and comments, with validation, error h
 
 ### 1. Clone the project
 ```bash
-git clone https://github.com/YOUR_USERNAME/blog_application.git
-cd blog_application/backend_blog
+git clone https://github.com/braz-bogdan156/blog_backend
+cd backend_blog
 2. Install dependencies
 
 npm install
@@ -32,7 +32,7 @@ DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USER=postgres
 DATABASE_PASSWORD=your_password
-DATABASE_NAME=blog_db
+DATABASE_NAME=blog
 FRONTEND_ORIGIN=http://localhost:5174
 👉 Make sure PostgreSQL is running locally and the database blog_db exists.
 👉 Adjust credentials to your environment.
