@@ -23,30 +23,24 @@ Implements CRUD operations for blog posts and comments, with validation, error h
 git clone https://github.com/YOUR_USERNAME/blog_application.git
 cd blog_application/backend_blog
 2. Install dependencies
-bash
-Копировать код
+
 npm install
 3. Configure environment
 Create a .env file in the backend_blog/ root:
-
-env
-Копировать код
-PORT=5000
+PORT=7000
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USER=postgres
 DATABASE_PASSWORD=your_password
 DATABASE_NAME=blog_db
-FRONTEND_ORIGIN=http://localhost:5173
+FRONTEND_ORIGIN=http://localhost:5174
 👉 Make sure PostgreSQL is running locally and the database blog_db exists.
 👉 Adjust credentials to your environment.
 
 4. Run dev server
-bash
-Копировать код
 npm run start:dev
 Server will be available at:
-👉 http://localhost:5000
+👉 http://localhost:7000
 
 📌 API Endpoints (Test with Postman)
 🔹 Posts
@@ -61,22 +55,19 @@ Get Post by ID – GET /posts/:id
 
 Update Post – PUT /posts/:id
 
-json
-Копировать код
+
 { "title": "Updated title", "content": "Updated content" }
 Delete Post – DELETE /posts/:id
 
 🔹 Comments
 Add Comment – POST /comments
 
-json
-Копировать код
+
 { "postId": 1, "author": "John", "text": "Great article!" }
 Get Comments for Post – GET /comments/:postId
 
 📂 Project Structure
-ruby
-Копировать код
+
 backend_blog/
 ├── src/
 │   ├── comments/
@@ -116,7 +107,5 @@ Default port: 5000
 
 Requires PostgreSQL running locally (or use Docker)
 
-Designed to work with the Blog Application frontend (http://localhost:5173)
+Designed to work with the Blog Application frontend (http://localhost:5174)
 
-go
-Копировать код
