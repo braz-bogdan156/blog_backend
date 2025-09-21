@@ -22,9 +22,10 @@ Implements CRUD operations for blog posts and comments, with validation, error h
 ```bash
 git clone https://github.com/braz-bogdan156/blog_backend
 cd backend_blog
-2. Install dependencies
 
+2. Install dependencies
 npm install
+
 3. Configure environment
 Create a .env file in the backend_blog/ root:
 PORT=7000
