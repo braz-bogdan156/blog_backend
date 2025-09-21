@@ -26,11 +26,6 @@ export class PostsService {
     const posts = await this.postRepository.findAll({
       include: { model: CommentModel, as: 'comments' },
     });
-
-    if (!posts.length) {
-      throw new NotFoundException('No posts found');
-    }
-
     return posts;
   }
 
