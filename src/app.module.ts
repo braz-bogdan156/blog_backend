@@ -5,8 +5,12 @@ import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
 import { CommentModel } from './comments/models/comments.model';
 import { PostModel } from './posts/models/posts.model';
+import { AppController } from './app.controller';
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 @Module({
+  controllers: [AppController],
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
@@ -21,12 +25,14 @@ import { PostModel } from './posts/models/posts.model';
       models: [PostModel, CommentModel],
       autoLoadModels: true,
       synchronize: true,
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-      },
+      dialectOptions: isProduction
+        ? {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
+          }
+        : {},
     }),
     PostsModule,
     CommentsModule,
