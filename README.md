@@ -125,4 +125,4 @@ The project supports multiple .env files for flexibility:
 🚀 Deployment
 
 The backend was deployed to Render.
-(🔜 a working production deployment link will be added soon)
+(a working production deployment link : https://blog-backend-t2pc.onrender.com)
