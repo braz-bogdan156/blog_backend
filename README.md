@@ -104,9 +104,25 @@ CORS enabled for frontend communication
 Scalable modular architecture (Posts & Comments modules)
 
 🚀 Notes
-Default port: 5000
+Default port: 7000
 
 Requires PostgreSQL running locally (or use Docker)
 
 Designed to work with the Blog Application frontend (http://localhost:5174)
 
+:
+
+🌐 Environment Config
+
+The project supports multiple .env files for flexibility:
+
+.development.env – local development & testing
+
+.production.env – production deployment (Render)
+
+.env – base example (can be used as a template)
+
+🚀 Deployment
+
+The backend was deployed to Render.
+(🔜 a working production deployment link will be added soon)
