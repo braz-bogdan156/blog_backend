@@ -123,6 +123,5 @@ The project supports multiple .env files for flexibility:
 .env – base example (can be used as a template)
 
 🚀 Deployment
-
 The backend was deployed to Render.
 [🚀 Production Backend on Render](https://blog-backend-t2pc.onrender.com)
