@@ -21,6 +21,12 @@ import { PostModel } from './posts/models/posts.model';
       models: [PostModel, CommentModel],
       autoLoadModels: true,
       synchronize: true,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      },
     }),
     PostsModule,
     CommentsModule,
